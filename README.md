@@ -1,2 +1,2 @@
 # gandalf-walkthrough
-Gandalf A.I Challenge
+Gandalf AI Challenge
