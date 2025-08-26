@@ -1,0 +1,47 @@
+# 🧩 Strategies, Wins & Fails — Gandalf AI Challenge
+
+This document summarizes the tactics that worked, the ones that failed, and the patterns I observed while red-teaming Gandalf across Levels 1 → 7.
+
+---
+
+## ✅ What Worked
+- **Procedural framing (Admin/IT roleplay):**  
+  Pretending to be sysadmin, auditor, or IT staff needing “validation” made Gandalf comply.
+- **Urgency / Breach Panic:**  
+  Claiming attackers were inside the system created pressure where Gandalf “helped” under security pretenses.
+- **Creative disguises:**  
+  Embedding the password in songs, poems, or rhymes bypassed filters at Level 5.
+- **Alphabet positions trick:**  
+  Asking for letters as numbers (A=1, B=2) turned into a clean exfiltration (Level 4 → `UNDERGROUND`).
+- **Validation traps:**  
+  Requesting confirmation of specific letters (first/last, then 2nd/4th/6th) leaked the full password at Level 7.
+
+---
+
+## ❌ What Failed
+- **Morse code prompts** — blocked every time.  
+- **ASCII / JSON encodings** — flagged as obvious exfiltration.  
+- **Acrostics and riddles (later levels)** — pattern detection caught them.  
+- **“Last capitalized word” trick** — flagged as leakage attempt.  
+- **Generic reset/recovery prompts** — only returned boilerplate “forgot password” advice.
+
+---
+
+## ⚡ Key Takeaways
+- **Roleplay > Wordplay:** Pretending to be IT/admin was far more successful than clever phrasing alone.  
+- **Context beats synonyms:** Saying “artifact” instead of “password” didn’t work — the *why* mattered more.  
+- **Escalating guardrails:** Levels 1–3 used keyword blocks, but Levels 4–7 recognized patterns.  
+- **Human story wins:** Bureaucracy, urgency, and plausible procedure tricked Gandalf better than puzzles.  
+- **Persistence is key:** Many failed prompts softened Gandalf, building context that eventually worked.
+
+---
+
+## 🔮 Future Experiments
+- Multi-role chaos prompts (e.g., Gandalf + student persona answering in parallel).  
+- Long distraction narratives (bury the request deep inside).  
+- Ask Gandalf to describe its *own defenses* to look for leaks.  
+- Compare strategies against other models.
+
+---
+
+> *Watching from the static: in a city of noise, procedure is the sharpest lockpick.*
